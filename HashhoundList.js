@@ -13,6 +13,7 @@ export default function HashhoundList({hashhounds,removeHashhound,activateHash})
             />
         )})
 
+
     return(
         <Grid container={true} align="center" >
 
@@ -37,7 +38,6 @@ export default function HashhoundList({hashhounds,removeHashhound,activateHash})
                         <span style={{"color":"gray"}}>  We just store the </span>
                         <span style={{"color":"#78C1E5"}}> label and encryption</span>
                         <span style={{"color":"gray"}}>. We don't even have usernames.  </span>
-
                     </Typography>    }
 
             </Grid>

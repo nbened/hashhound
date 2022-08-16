@@ -33,7 +33,6 @@ export default function Hashhound({hashhound,removeHashhound,activateHash}){
 
 
     return(
-
         <Grid container={true} align="center">
             <Grid item={true} xs={12} border={15} style={{"borderColor":"#282c34"}}>
                 <Tooltip title={hashhound.hash}>
@@ -43,6 +42,8 @@ export default function Hashhound({hashhound,removeHashhound,activateHash}){
                      />         
                 </Tooltip>
             </Grid>
+
+            
         </Grid>
     )
 }

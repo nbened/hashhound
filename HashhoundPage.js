@@ -23,16 +23,20 @@ export default function HashhoundPage(){
     const [activehash,setActivehash] = useState("")
     const [secretkey,setSecretkey] = useState("")
 
+    
     useEffect(() => {
+
       firestore.collection("userdata")
       .doc(uid) 
       .get().then(res=>{
+
           setHashhounds(JSON.parse(res.data().storedhashhounds))
       })
     }, []);
   
  
     function addHashhound(hashhound) {
+
         let storedhashhounds = JSON.stringify([hashhound, ...hashhounds])
         setDoc(doc(firestore, "userdata", uid), {
           email,
@@ -53,9 +57,13 @@ export default function HashhoundPage(){
 
       function activateHash(id,hash){
         setActivehash(hash)
+
         setHashhounds(hashhounds.map(hashhound=>{
           console.log(hashhound)
           if(hashhound.id === id){
+            console.log("match:")
+            console.log(hashhound)
+           
             return{
               ...hashhound,
               clicked: true
@@ -65,11 +73,10 @@ export default function HashhoundPage(){
               ...hashhound,
               clicked: false
             }
+
           }
         })
       )}
-
-
 
     return(
         <div>
