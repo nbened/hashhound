@@ -33,16 +33,8 @@ export default function Hashhound({hashhound,removeHashhound,activateHash}){
 
 
     return(
-        // <div>
-            // <h1>App: {hashhound.application}: </h1>
 
-        //     <h5>Hash: {hashhound.hash} </h5>
-        //     <h4>Copy Hash</h4>
-
-        //     <h4>delete pair</h4>
-        // </div>
         <Grid container={true} align="center">
-
             <Grid item={true} xs={12} border={15} style={{"borderColor":"#282c34"}}>
                 <Tooltip title={hashhound.hash}>
                     <Chip onClick={handleAppClick} onDelete={handleRemoveClick}
@@ -51,14 +43,6 @@ export default function Hashhound({hashhound,removeHashhound,activateHash}){
                      />         
                 </Tooltip>
             </Grid>
-
-            
         </Grid>
     )
 }
-
-{/* <Grid item={true} xs={2}>
-<IconButton onClick={() => {{navigator.clipboard.writeText(hashhound.hash)}}} style={{"color":"white"}}>
-    <ContentCopyIcon/>
-</IconButton >
-</Grid> */}

@@ -23,23 +23,16 @@ export default function HashhoundPage(){
     const [activehash,setActivehash] = useState("")
     const [secretkey,setSecretkey] = useState("")
 
-    
-
     useEffect(() => {
-
       firestore.collection("userdata")
-      .doc(uid) // the '2' here represents how many total quotes there are 
+      .doc(uid) 
       .get().then(res=>{
-
           setHashhounds(JSON.parse(res.data().storedhashhounds))
       })
     }, []);
   
  
     function addHashhound(hashhound) {
-        console.log("adding..")
-        console.log(email)
-      
         let storedhashhounds = JSON.stringify([hashhound, ...hashhounds])
         setDoc(doc(firestore, "userdata", uid), {
           email,
@@ -59,15 +52,10 @@ export default function HashhoundPage(){
       }
 
       function activateHash(id,hash){
-        console.log("activated")
         setActivehash(hash)
-
         setHashhounds(hashhounds.map(hashhound=>{
           console.log(hashhound)
           if(hashhound.id === id){
-            console.log("match:")
-            console.log(hashhound)
-           
             return{
               ...hashhound,
               clicked: true
@@ -77,7 +65,6 @@ export default function HashhoundPage(){
               ...hashhound,
               clicked: false
             }
-
           }
         })
       )}
@@ -89,10 +76,6 @@ export default function HashhoundPage(){
             <HashhoundRetrieve hashhounds={hashhounds} activehash={activehash} setSecretkey={setSecretkey}/>
             <HashhoundList hashhounds={hashhounds} removeHashhound={removeHashhound} activateHash={activateHash}/>
             <HashhoundForm addHashhound={addHashhound} secretkey={secretkey}/>
-            
-            {/* <h1>Password Safe </h1>
-            <input type="text" name="application" onChange={handleApplicationInput}></input>
-            <button onClick={handleGenerateHash}>Generate Hash</button> */}
         </div>
     )
 }

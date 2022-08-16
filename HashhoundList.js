@@ -3,11 +3,6 @@ import { Checkbox, IconButton, Divider, ListItem, Typography, Grid } from "@mui/
 import React, { useEffect, useState, version } from "react";
 
 export default function HashhoundList({hashhounds,removeHashhound,activateHash}){
-    console.log(hashhounds)
-
-
-
-
         
    var hashhoundlist = hashhounds.map(hashhound => {return (
             <Hashhound 
@@ -18,10 +13,8 @@ export default function HashhoundList({hashhounds,removeHashhound,activateHash})
             />
         )})
 
-
     return(
         <Grid container={true} align="center" >
-
 
             <Grid item={true} xs={12} borderTop={60} borderColor="#282C34">
                 <Typography fontWeight={"bold"} fontSize={30} >
@@ -39,8 +32,6 @@ export default function HashhoundList({hashhounds,removeHashhound,activateHash})
                 {hashhoundlist.length ? hashhoundlist : <Typography fontWeight={"bold"} fontSize={15} color="gray" >~ No stored passwords yet ~</Typography>}
             </Grid>
 
-            {/* {user ? <HashhoundPage user={user}/> : <SignIn />} */}
-
             <Grid item xs={12} borderTop={15} borderColor="#282C34">
                 {!hashhoundlist.length ? hashhoundlist : <Typography fontWeight={"bold"} fontSize={10} >
                         <span style={{"color":"gray"}}>  We just store the </span>
@@ -48,8 +39,6 @@ export default function HashhoundList({hashhounds,removeHashhound,activateHash})
                         <span style={{"color":"gray"}}>. We don't even have usernames.  </span>
 
                     </Typography>    }
-
-                
 
             </Grid>
 

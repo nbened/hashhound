@@ -17,13 +17,9 @@ export default function HashhoundRetrieve({activehash,setSecretkey}){
             try{
                 var bytes = CryptoJS.AES.decrypt(activehash, key);
                 var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        
-                console.log(decryptedData.text)
                 setDecipheredpassword(decryptedData.text)
-                console.log("Key matches!")
                 setDecipherstate(true)
             }catch{
-                console.log("Key does not match..")
                 setDecipheredpassword("")
                 setDecipherstate(false)
             }
@@ -101,7 +97,6 @@ export default function HashhoundRetrieve({activehash,setSecretkey}){
                         <Grid md={3}/>
 
                         <Grid xs={12}>
-                            
                             {!decipherstate ? "" : <Typography fontWeight={"bold"} fontSize={10} borderTop={15} borderColor="#282C34" >                                
                                 <span style={{"color":"gray"}}>  Both of these are not stored, just </span>
                                 <span style={{"color":"#78C1E5"}}>  displayed</span>
@@ -109,7 +104,6 @@ export default function HashhoundRetrieve({activehash,setSecretkey}){
                                 <span style={{"color":"#78C1E5"}}>  source code</span>
                                 <span style={{"color":"gray"}}>. </span>
                             </Typography>}
-
                         </Grid>
                       
 
